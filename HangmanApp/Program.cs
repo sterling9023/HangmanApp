@@ -10,6 +10,7 @@ namespace HangmanApp
             //int minChar = 64;
             //int maxChar = 90;
 
+            // Another comment
             // Welcome!
             //Console.WriteLine("**********************\n" +
             //    "*                    *\n" +
