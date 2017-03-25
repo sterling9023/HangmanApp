@@ -7,16 +7,24 @@ namespace HangmanApp
     {
         static void Main()
         {
+            // Declare variables & objects.
+            string word = "0";
+            char[] wordArr;
+            string sequel = string.Empty;
+            char[] sequelArr;
+            int guessCtr = 1;
+            string strGuess = string.Empty;
+            int cursorRow;
+            string resultStr = string.Empty;
             //int minChar = 64;
             //int maxChar = 90;
 
-            // Another comment
             // Welcome!
-            //Console.WriteLine("**********************\n" +
-            //    "*                    *\n" +
-            //    "* Welcome to Hangman *\n" +
-            //    "*                    *\n" +
-            //    "**********************\n");
+            Console.WriteLine("**********************\n" +
+                "*                    *\n" +
+                "* welcome to hangman *\n" +
+                "*                    *\n" +
+                "**********************\n");
 
             // Prompt and store word to be guessed.
             {
@@ -73,20 +81,23 @@ namespace HangmanApp
                     }
                 }
                 strGuess = strGuess.ToUpper();
-                guessCtr++;
                 Console.Clear();
-                resultStr = "That guess was incorrect!\n";
+                resultStr = "incorrect";
 
                 for (int i = 0; i < wordArr.Length; i++)
                 {
                     if (wordArr[i].ToString() == strGuess)
                     {
                         sequelArr[i] = wordArr[i];
-                        resultStr = "That guess was correct!\n";
+                        resultStr = "correct";
                     }
                 }
+                if (resultStr == "incorrect")
+                {
+                    guessCtr++;
+                }
                 strGuess = string.Empty;
-                Console.WriteLine(resultStr);
+                Console.WriteLine("That guess was {0}.", resultStr);
                 sequel = new string(sequelArr);
             }
 
